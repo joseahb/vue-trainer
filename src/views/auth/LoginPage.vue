@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+      <p>login works!</p>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App'
+    name: 'LoginPage'
 }
 </script>
 
 <style>
+
 </style>
