@@ -64,7 +64,7 @@ const actions = {
     },
     async LogOut({commit}){
         let user = null
-        commit('logout', user)
+        commit('LogOut', user)
     }
 };
 

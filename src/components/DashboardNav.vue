@@ -22,9 +22,9 @@
                                 My Account
                             </router-link>
                             <hr class="navbar-divider">
-                            <router-link to="/logout" class="navbar-item" href="https://versions.bulma.io/0.7.0/documentation/columns/basics/">
+                            <a href="#" @click.prevent="userLoggedOut" class="navbar-item">
                                 Logout
-                            </router-link>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -34,10 +34,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 import DashboardNav from '../components/DashboardNav'
 export default {
-    name: DashboardNav
+    name: DashboardNav,
+
+    methods:{
+        ...mapActions(['LogOut']),
+        async userLoggedOut(){
+            await this.LogOut()
+            this.$router.push('/')
+        }
+
+    }
 }
 </script>
 

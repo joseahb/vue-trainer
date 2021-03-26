@@ -42,7 +42,7 @@ const router = new VueRouter({
                 component: DashboardPage
             }
             ]
-        }
+        },
     ]
  });
 // Unauthenticated Users
