@@ -6,7 +6,10 @@ import store from './store'
 import axios from 'axios'
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'localhost:8000/api'
+axios.defaults.baseURL = 'http://localhost:5000/api'
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.common['Access-Control-Allow-Credentials'] = true;
 
 Vue.config.productionTip = false
 

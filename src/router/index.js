@@ -9,12 +9,21 @@ import RegisterPage from '../views/auth/RegisterPage'
 import DashboardPage from '../views/dashboard/DashboardPage'
 import store from '../store'
 
+import DashboardLayout from '../layouts/DashboardLayout'
+import DefaultLayout from '../layouts/DefaultLayout'
+
 const router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: "/",
-            component: HomePage,
+            component: DefaultLayout,
+            children: [
+                {
+                    path: '',
+                    component: HomePage
+                }
+            ]
         },
         {
             path: "/login",
@@ -26,7 +35,13 @@ const router = new VueRouter({
         },
         {
             path: '/dashboard',
-            component: DashboardPage
+            component: DashboardLayout,
+            children: [
+            {
+                path: '',
+                component: DashboardPage
+            }
+            ]
         }
     ]
  });
