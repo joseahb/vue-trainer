@@ -92,11 +92,11 @@ export default {
   data: function(){
     return{ 
       form: {
-        username : '',
-        fullName: '',
-        email: '',
-        mobile: '',
-        password: ''
+        username : 'joseahb',
+        fullName: 'joseah biwott',
+        email: 'biwottjoseah@gmail.com',
+        mobile: '1234567890',
+        password: 'qwerty'
       }
     }
   },

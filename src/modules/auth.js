@@ -47,6 +47,7 @@ const actions = {
         await dispatch('LogIn', UserForm)
     },
     async LogIn({commit}, User) {
+        console.dir(User);
         await axios.post('/user/login', User)
         .then(res => {
         console.dir(res)

@@ -7,10 +7,10 @@
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
           <form @submit.prevent="loginUser" class="box">
             <div class="field">
-              <label for="" class="label">Email</label>
+              <label for="" class="label">User id</label>
               <div class="control has-icons-left">
                 <validation-provider>
-                  <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" v-model="form.email">
+                  <input type="text" placeholder="username or Email" class="input" v-model="form.user_id" aria-placeholder="Username or email<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<">
                   <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>
                   </span>
@@ -60,7 +60,7 @@ export default {
     data: function() {
       return {
         form : {
-          email: '',
+          user_id: '',
           password: ''
         }
       }
@@ -69,7 +69,7 @@ export default {
       ...mapActions(['LogIn']),
       async loginUser(){
         const User = new FormData
-        User.append('username', this.form.email)
+        User.append('user_id', this.form.user_id)
         User.append('password', this.form.password)
         try{
           await this.LogIn(User)
