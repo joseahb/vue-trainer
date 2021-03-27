@@ -22,7 +22,7 @@
               <label for="" class="label">Full name</label>
               <div class="control has-icons-left">
                 <validation-provider rules="fullname" name="Full name" v-slot='{ errors }' >
-                  <input type="text" placeholder="e.g. Bob More Reily" class="input" v-model="form.fullName" required>
+                  <input type="text" placeholder="e.g. Bob More Reily" class="input" v-model="form.fullname" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-user"></i>
                   </span>
@@ -93,7 +93,7 @@ export default {
     return{ 
       form: {
         username : 'joseahb',
-        fullName: 'joseah biwott',
+        fullname: 'joseah biwott',
         email: 'biwottjoseah@gmail.com',
         mobile: '1234567890',
         password: 'qwerty'
@@ -104,10 +104,10 @@ export default {
   methods: {
     ...mapActions(['Register']),
     async registerUser(){
-      console.log("I've been called!");
       try {
+        console.dir(this.form)
         await this.Register(this.form)
-        this.$router.push('/dashboard')
+        this.$router.push('/login')
       } catch (error) {
         this.ShowError = true
       }

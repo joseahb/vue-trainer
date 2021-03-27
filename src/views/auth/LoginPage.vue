@@ -10,7 +10,7 @@
               <label for="" class="label">User id</label>
               <div class="control has-icons-left">
                 <validation-provider>
-                  <input type="text" placeholder="username or Email" class="input" v-model="form.user_id" aria-placeholder="Username or email<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<">
+                  <input type="text" placeholder="username or Email" class="input" v-model="form.user_id" aria-placeholder="Username or email">
                   <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>
                   </span>
@@ -60,8 +60,8 @@ export default {
     data: function() {
       return {
         form : {
-          user_id: '',
-          password: ''
+          user_id: 'joseahb',
+          password: '123456'
         }
       }
     },
@@ -72,7 +72,8 @@ export default {
         User.append('user_id', this.form.user_id)
         User.append('password', this.form.password)
         try{
-          await this.LogIn(User)
+          console.log(this.form);
+          await this.LogIn( this.form )
           this.$router.push("/dashboard")
         }
         catch(error){

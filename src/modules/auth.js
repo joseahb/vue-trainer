@@ -28,7 +28,6 @@ const mutations = {
 
 const actions = {
     async Register( {dispatch}, form ){
-        console.log("I'm on it!")
         await axios.post('/user/register', form)
         .then(res => {
             console.dir(res)
@@ -42,12 +41,12 @@ const actions = {
             alert('Authentication failed')
           })
         let UserForm = new FormData()
-        UserForm.append('username', form.username)
+        UserForm.append('user_id', form.email)
         UserForm.append('password', form.password)
-        await dispatch('LogIn', UserForm)
+        await dispatch('LogIn', {  user_id : form.email, password: form.password })
     },
     async LogIn({commit}, User) {
-        console.dir(User);
+        // console.log(User.user_id);
         await axios.post('/user/login', User)
         .then(res => {
         console.dir(res)
